@@ -1,5 +1,5 @@
-  <!doctype html>
-  <html lang="en">
+<!doctype html>
+<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,31 +7,30 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>@yield('title')</title>
   </head>
-
   <body>
-    
-  <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <div class="container-fluid" style="border:2 px solid black ;">
-          <a class="navbar-brand" href="#"><img src="img/logo.jpeg" width="70px" >MSA Laptop</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-link active" aria-current="page" href="{{url('/home')}}">Home</a>
-            <a class="nav-link" href="{{url('/catalog')}}">| Catalog</a>
-            <a class="nav-link" href="{{url('/Contact Person')}}">| Contact Person</a>
-            <a class="nav-link" href="{{url('/About Us')}}">| About Person</a>
-            <a class="nav-link" href="{{url('/order')}}">| Order</a>
-            <a class="nav-link" href="{{url('/Logout')}}">| Logout</a>
-          </div>
-        </div>
-        </div> 
-    </nav> 
-
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">MSA Laptop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
+        <a class="nav-link" href="{{url('/catalog')}}">| Catalog</a>
+        <a class="nav-link" href="{{url('/about')}}">| Contact Person</a>
+        <a class="nav-link" href="{{url('/order')}}">| Order</a>
+        <a class="nav-link" href="{{url('/Logout')}}">| Logout</a>
+      </div>
+    </div>
+  </div>
+  </nav>
+  @yield('container');
+  
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -44,5 +43,4 @@
     -->
   </body>
 </html>
-
 

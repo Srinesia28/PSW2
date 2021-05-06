@@ -1,4 +1,5 @@
-
+<!doctype html>
+<html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,9 +8,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-    <title>Register</title>
+    <title>Halaman Register</title>
   </head>
-  <body>
+<body>
   
   <br><br><br><br><br>
     <div class="container card" style="width: 23rem;">
@@ -17,16 +18,17 @@
         <h2><img src="" width="80px" alt="">&nbsp;&nbsp;<b class="title" style="color: navy;">Register</b></b></h2>
         <p  style=" margin-right: -83px; margin-top: -28px; font-size: 10px; font-style: italic;"></p>
         </center><br>
-    <form class="form container" action="">
+    <form class="form container" action="/login" method="post">
+    @csrf
         <div class="loginbody">
         <label for=""><i class="fas fa-user-circle"></i>Nama</label>
-        <input class="form-control border-top-0" type="text"><br>
-        <label for=""><i class="fas fa-user-circle"></i>username</label>
-        <input class="form-control border-top-0" type="text"><br>
+        <input class="form-control border-top-0" type="text" name="Nama"><br>
+        <label for=""><i class="fas fa-user-circle" ></i>username</label>
+        <input class="form-control border-top-0" type="text" name="Username"><br>
         <label for=""><i class="fas fa-key"></i> Password</label>
-        <input class="form-control" type="text"><br><br>
-        <button class="btn btn-primary">Register</button><br><br>
-        <center><p>Back to |</p><p href ="">login</p>
+        <input class="form-control" type="password" name="password"><br><br>
+        <button class="btn btn-primary" type="submit">Register</button><br><br>
+        <center><p>Back to |</p><p href ="/login">login</p>
           
         </center>     
     </form>

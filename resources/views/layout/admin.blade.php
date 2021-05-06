@@ -23,13 +23,12 @@
         <a class="nav-link active" aria-current="page" href="{{url('/pesanan')}}">Daftar Pesanan</a>
         <a class="nav-link" href="{{url('/produk')}}">| Produk</a>
         <a class="nav-link" href="{{url('/add_Produk')}}">| Tambah Produk</a>
-        <a class="nav-link" href="{{url('/about')}}">| About Person</a>
         <a class="nav-link" href="{{url('/Logout')}}">| Logout</a>
       </div>
     </div>
   </div>
   </nav>
-  @yield('container');
+  @yield('container')
   
     <!-- Optional JavaScript; choose one of the two! -->
 
