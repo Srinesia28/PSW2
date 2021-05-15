@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Models;
-use Auth;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class user extends Model
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
 {
     use HasFactory;
-    protected $fillable=['Nama','Username','Pssword'];
+    protected $fillable=['id','email','name','password'];
 }

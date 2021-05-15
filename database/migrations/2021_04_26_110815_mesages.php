@@ -16,11 +16,13 @@ class Mesages extends Migration
         {
             Schema::create('messages', function (Blueprint $table) {
                 $table->id();
-                $table->String('Nama_Pemesan');
-                $table->String('Email');
-                $table->String('Alamat');
+                $table->String('email');
+                $table->String('nama_pemesan');
+                $table->String('alamat');
+                $table->String('nama_produk');
                 $table->String('no_hp');
-                $table->String("Pesan");
+                $table->string('jumlah');
+                $table->String('pesan');
                 $table->timestamps();
             });
         }

@@ -11,7 +11,7 @@
     <title>@yield('title')</title>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">MSA Laptop</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" 
@@ -21,14 +21,32 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="{{url('/pesanan')}}">Daftar Pesanan</a>
-        <a class="nav-link" href="{{url('/produk')}}">| Produk</a>
-        <a class="nav-link" href="{{url('/add_Produk')}}">| Tambah Produk</a>
-        <a class="nav-link" href="{{url('/Logout')}}">| Logout</a>
+        <a class="nav-link" href="{{url('/produk')}}">Produk</a>
+        <a class="nav-link" href="{{url('/add_Produk')}}">Tambah Produk</a>
+        <a class="nav-link" href="{{url('/komentar')}}">Daftar Saran</a>
+        <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
       </div>
     </div>
   </div>
   </nav>
   @yield('container')
+
+  <style>
+     body{  background-image: url(img/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover; 
+            color:black;
+     }
+     
+  </style>
   
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -7,29 +7,46 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>@yield('title')</title>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">MSA Laptop</a>
+    <a class="navbar-brand" href="{{url('/')}}"><img src="img/logo.jpg" width="60px" alt="Logo">&nbsp;&nbsp; MSA Laptop</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link active" aria-current="page" href="{{url('/')}}">Home</a>
-        <a class="nav-link" href="{{url('/catalog')}}">| Catalog</a>
-        <a class="nav-link" href="{{url('/about')}}">| Contact Person</a>
-        <a class="nav-link" href="{{url('/order')}}">| Order</a>
-        <a class="nav-link" href="{{url('/Logout')}}">| Logout</a>
+        <a class="nav-link" href="{{url('/catalog')}}">Catalog</a>
+        <a class="nav-link" href="{{url('/about')}}">About US</a>
+        <a class="nav-link" href="{{url('/order')}}">Order</a>
+        <a class="nav-link" href="{{url('/comment')}}">Saran</a>
+        <a class="nav-link" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
       </div>
     </div>
   </div>
   </nav>
-  @yield('container');
+  @yield('container')
+
+  <style>
+     body{  background-image: url(img/bg1.jpg);
+            background-repeat: no-repeat;
+            background-size: cover; 
+            color:black;
+     }
+     
+  </style>
   
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class message extends Model
 {
     use HasFactory;
-    protected $fillable=['Nama_Pemesan','Email','Alamat','no_hp','Pesan'];
+    protected $fillable=['email','nama_pemesan','alamat','nama_produk','no_hp','jumlah','pesan'];
 }

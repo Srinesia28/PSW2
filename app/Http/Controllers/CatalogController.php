@@ -15,7 +15,7 @@ class CatalogController extends Controller
     public function index()
     {
         $produk=product::all();
-        return view('catalog',['produk'=>$produk]);
+        return view('user.catalog',['produk'=>$produk]);
     }
 
     /**
@@ -38,7 +38,7 @@ class CatalogController extends Controller
     {
 
         
-        return view('catalog');
+        return view('user.catalog');
     }
 
     /**

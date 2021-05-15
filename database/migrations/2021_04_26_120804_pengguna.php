@@ -16,9 +16,9 @@ class Pengguna extends Migration
         {
             Schema::create('users', function (Blueprint $table) {
                 $table->id();
-                $table->String('Nama');
-                $table->String('Username');
-                $table->String('Pssword');
+                $table->string('email')->unique();
+                $table->String('name');
+                $table->String('password');
                 $table->timestamps();
             });
     }

@@ -8,25 +8,28 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use App\Models\comment;
 
 class HalamanControl extends Controller{
     public function home(){
-        
-        return view('home');
+        return view('user.home');
     }
-
     public function about()
     {
-        return view('about');
-    }
-
+        return view('user.about');}
     public function add_Produk()
     {
-        return view('add_Produk');
+        return view('admin.add_Produk');
+    }
+
+    public function comment()
+    {
+        $komen=comment::all();
+        return view('user.formkomen',['komen'=>$komen]);
     }
 
     public function catalog(){
-        return view('catalog');
+        return view('user.catalog');
     }
     public function login_admin(){
         return view('login_admin');
@@ -35,10 +38,14 @@ class HalamanControl extends Controller{
             return view('login_user');
     }
     public function order(){
-            return view('order');
+            return view('user.order');
     }
     public function register(){
         return view('register');
+    }
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
 }

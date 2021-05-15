@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use App\Models\product;
 use DB;
-
 
 class ProdukController extends Controller
 {
@@ -18,7 +18,7 @@ class ProdukController extends Controller
     {
         $produk=product::all();
 
-         return view('produk',['produk'=>$produk]);
+    return view('admin.produk',['produk'=>$produk]);
     }
 
     /**
@@ -28,7 +28,7 @@ class ProdukController extends Controller
      */
     public function create()
     {
-        return view('add_produk');
+        return view('admin.add_produk');
     }
 
     /**
@@ -39,7 +39,17 @@ class ProdukController extends Controller
      */
     public function store(Request $request)
     {
-
+        $request->validate([
+            'nama_produk'=>'required',
+            'harga_produk'=>'required',
+            'toko'=>'required',
+            'kondisi'=>'required',
+            'stok'=>'required',
+            'spesifikasi'=>'required',
+            'alamat'=>'required',
+            'gambar'=>'required'
+        ]);
+           
        product::create([
         'Nama_Produk'=>$request->nama_produk,
         'Harga_Produk'=>$request->harga_produk,
@@ -51,7 +61,8 @@ class ProdukController extends Controller
         'Foto'=>$request->gambar
 
        ]);
-        return redirect('/produk')->with('status', 'Data Berhasil Ditambahkan');
+       
+        return redirect('/produk')->with('status', 'Data Berhasil Ditamabahkan');
         
     }
 
@@ -75,6 +86,8 @@ class ProdukController extends Controller
     public function edit($id)
     {
         //
+        $produk = product::find($id);
+        return view('admin.edit',compact('produk'));
     }
 
     /**
@@ -86,7 +99,35 @@ class ProdukController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        DB::table('products')->where('id',$request->id)->update([
+            'Nama_Produk'=>$request->nama_produk,
+            'Harga_Produk'=>$request->harga_produk,
+            'Toko'=>$request->toko,
+            'Kondisi'=>$request->kondisi,
+            'Stok'=>$request->stok,
+            'Spesifikasi'=>$request->spesifikasi,
+            'Alamat'=>$request->alamat,
+            'Foto'=>$request->gambar
+        ]);
+        return redirect('/produk')->with('status', 'Data Berhasil Diubah');
+        /*
+        
+        $produk = product::find($id);
+        $produk->id_produk=$request->id_produk;
+        $produk->Nama_Produk=$request->Nama_Produk;
+        $produk->Harga_Produk=$request->Harga_Produk;
+        $produk->Toko=$request->Toko;
+        $produk->Kondisi=$request->Kondisi;
+        $produk->Stok=$request->Stok;
+        $produk->Spesifikasi=$request->Spesifikasi;
+        $produk->Alamat=$request->Alamat;
+        $produk->Foto=$request->Gambar;
+ 
+        $produk->save();
+ 
+        return redirect()->action('ProdukController@index');
+        */
     }
 
     /**
@@ -105,5 +146,4 @@ class ProdukController extends Controller
         DB::table('products')->where('id',$id)->delete();
     	return redirect('produk')->with('status', 'Data Berhasil Dihapus');
     }
-
 }

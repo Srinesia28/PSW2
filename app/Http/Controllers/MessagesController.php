@@ -17,7 +17,7 @@ class MessagesController extends Controller
     {
         $pesan=message::all();
         
-        return view('admin_view',['pesan'=>$pesan]);
+        return view('admin.admin_view',['pesan'=>$pesan]);
     }
 
     /**
@@ -38,14 +38,26 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        message::create([
-            'Nama_Pemesan'=>$request->Nama_pemesan,
-            'Email'=>$request->Email,
-            'Alamat'=>$request->Alamat,
+        $request->validate([
+            'email'=>'required',
+            'nama_pemesan'=>'required',
+            'alamat'=>'required',
+            'nama_produk'=>'required',
+            'no_hp'=>'required',
+            'jumlah'=>'required',
+            'pesan'=>'required'
+        ]);
+
+        messages::create([
+            'email'=>$request->email,
+            'nama_pemesan'=>$request->nama_pemesan,
+            'alamat'=>$request->alamat,
+            'nama_produk'=>$request->nama_produk,
             'no_hp'=>$request->no_hp,
-            'Pesan'=>$request->Pesan
+            'jumlah'=>$request->jumlah,
+            'pesan'=>$request->pesan
            ]);
-           
+
            
             return redirect('/catalog');
     }
@@ -94,11 +106,10 @@ class MessagesController extends Controller
     {
         //
     }
-
+    
     public function hapus($id)
     {
         DB::table('messages')->where('id',$id)->delete();
     	return redirect('pesanan')->with('status', 'Data Berhasil Dihapus');
     }
-
 }
